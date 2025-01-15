@@ -38,6 +38,8 @@ dependencies:
   # introduction_screen: ^3.1.14
   get: ^4.6.6
   dots_indicator: ^3.0.0
+  font_awesome_flutter: ^10.8.0
+  http: ^1.2.2
 
 dev_dependencies:
   flutter_test:

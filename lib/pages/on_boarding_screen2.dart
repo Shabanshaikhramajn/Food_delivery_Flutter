@@ -65,8 +65,10 @@ class _OnBoardingScreen2State extends State<OnBoardingScreen2> {
                 children: [
                   DotsIndicator(
                     dotsCount: 3,
+                    
                     position: controller.state.index.value,
                     decorator: DotsDecorator(
+                      activeColor: primaryShade,
                       size: const Size.square(9),
                       activeShape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(5)),
