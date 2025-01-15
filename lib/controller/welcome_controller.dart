@@ -11,9 +11,11 @@ final state = WelcomeState();
 WelcomeController();
 
 changePage (int index) async {
-  print(state.index.value);
+  print(index);
+
   state.index.value = index;
-  
+  print(state.index.value);
+
 }
 
 

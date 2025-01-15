@@ -4,5 +4,6 @@ class WelcomeState {
 
 
   var index = 0.obs;
+ 
 
 }
