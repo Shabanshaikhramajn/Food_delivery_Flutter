@@ -1,21 +1,21 @@
-
-
-
 class UserModel {
-  String? token;
-  bool ?isLogin ;
+  String? accessToken;
+  String? refreshToken;
+  String? message;
 
-  UserModel({this.token, this.isLogin });
+  UserModel({this.accessToken, this.refreshToken, this.message});
 
   UserModel.fromJson(Map<String, dynamic> json) {
-    token = json['token'];
-    isLogin = json['isLogin'];
+    accessToken = json['access_token'];
+    refreshToken = json['refresh_token'];
+    message = json['message'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['token'] = this.token;
-    data['isLogin'] = this.isLogin;
+    data['access_token'] = this.accessToken;
+    data['refresh_token'] = this.refreshToken;
+    data['message'] = this.message;
     return data;
   }
 }

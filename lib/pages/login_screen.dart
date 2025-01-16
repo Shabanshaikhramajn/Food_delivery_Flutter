@@ -14,6 +14,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool remember = false;
+  final _formKey = GlobalKey<FormState>();
   
 
   @override
@@ -79,6 +80,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Padding(
                     padding: const EdgeInsets.all(20),
                     child: Form(
+
+                          key : _formKey,
                       child: Column(
                         children: [
                           // Email field
@@ -105,6 +108,25 @@ class _LoginScreenState extends State<LoginScreen> {
                                 borderSide: BorderSide.none,
                               ),
                             ),
+
+                          // validator : (value) {
+
+                          //     if(value == null || value.isEmpty){
+
+                          //           return 'Please enter your  email';
+
+                          //     }
+                          //     final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+                          //     if(!emailRegex.hasMatch(value)){
+
+                          //       return 'Please ente a valid email';
+                          //     }
+                          //     return null;
+
+                          // },
+                          // keyboardType: TextInputType.emailAddress,
+
+
                           ), 
                           
                           SizedBox(height: 20),
@@ -185,6 +207,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           // Log In button
                           InkWell(
                             onTap: () {
+
+                              if(_formKey.currentState!.validate()){
+                              
+                              }
         
                                           loginController.loginApi();  
                                             print('login button pressed'); 
@@ -213,7 +239,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           
         
         
-                          SizedBox(height: height * .06),
+                          SizedBox(height: height * .033),
                           // Don't have an account? Sign up
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,

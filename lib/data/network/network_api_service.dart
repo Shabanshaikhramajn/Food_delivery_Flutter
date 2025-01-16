@@ -22,10 +22,21 @@ class NetworkApiService  extends BaseApiServices{
 
         try {
 
-            final response = await http.post(Uri.parse(url),
+           Map test = {   "username": "johndoe",
+  "password": "password123"}; 
 
-            body : data
+            final response = await http.post(Uri.parse(url),
+            headers: {
+
+                  'Content-Type' : 'application/json',
+                  'Accept' : 'application/json'
+  },
+
+            body : jsonEncode(data),
+            
             ).timeout(const Duration(seconds: 10));
+            // print('url is $url');
+            print(data);
             print('try block successfull');
 
   responseJson = returnResponse(response);
@@ -54,6 +65,18 @@ class NetworkApiService  extends BaseApiServices{
 
               case 400: 
              print('status code is 400');
+
+              case 401: 
+             print('status code is 401');
+
+              case 400: 
+             print('status code is 400');
+
+              case 403: 
+             print('status code is 403');
+
+              case 404: 
+             print('status code is 404');
 
              default : 
               print('error happened while fetching data');

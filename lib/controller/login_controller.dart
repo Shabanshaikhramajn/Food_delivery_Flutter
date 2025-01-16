@@ -1,6 +1,9 @@
 
 
 
+import 'dart:convert';
+
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:food_delivery/data/home/user_model.dart';
 import 'package:food_delivery/data/network/base_api_services.dart';
@@ -47,10 +50,12 @@ loading.value = true;
 
   Map data = {
 
-    'email' : emailContoller.value.text,
+    'username' : emailContoller.value.text,
     'password' : passwordController.value.text
 
   };
+
+ 
 
     print(data);
 
@@ -60,18 +65,46 @@ _apiServices.loginApi(data).then((value){
 
         print('value is the $value');
 
-        UserModel userModel  = UserModel( 
-          token: value['token']
+       
+
+
+    if( value !=null && value['access_token'] != null){
+
+       UserModel userModel  = UserModel( 
+          accessToken: value['access_token'],
+          refreshToken: value['refresh_token'],
+          message: value['message']
 
         );
 
-  print(userModel.token);
 
-      if(userModel.token == 'QpwL5tke4Pnpja7X4') {
+        print('Access token ${userModel.accessToken}');
 
-    Get.toNamed(RoutesName.homeView);
+          Get.toNamed(RoutesName.homeView);
 
-      }
+    }else{
+
+      Get.snackbar('Error', 'Invalid credentials or response', snackPosition:SnackPosition.TOP, 
+        backgroundColor: Colors.white,
+        colorText: Colors.black,
+        margin: EdgeInsets.only(top: 20)
+      
+      );
+    }
+
+
+
+
+
+}).catchError((error) {
+
+  loading.value  = false;
+
+  print('Erro during login $error');
+
+
+  Get.snackbar('Error', 'Something went wrong.Please try again');
+
 
 
 });
