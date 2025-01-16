@@ -84,10 +84,10 @@ _apiServices.loginApi(data).then((value){
 
     }else{
 
-      Get.snackbar('Error', 'Invalid credentials or response', snackPosition:SnackPosition.TOP, 
+      Get.snackbar('Error', 'Invalid credentials', snackPosition:SnackPosition.TOP, 
         backgroundColor: Colors.white,
         colorText: Colors.black,
-        margin: EdgeInsets.only(top: 20)
+        margin: EdgeInsets.only(top: 20, left: 10, right: 10)
       
       );
     }

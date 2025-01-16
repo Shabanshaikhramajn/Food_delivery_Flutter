@@ -5,14 +5,14 @@ import 'package:food_delivery/controller/login_controller.dart';
 import 'package:food_delivery/utils/color.dart';
 import 'package:get/get.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignUpScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends State<SignUpScreen> {
   bool remember = false;
   final _formKey = GlobalKey<FormState>();
   
@@ -254,7 +254,9 @@ class _LoginScreenState extends State<LoginScreen> {
                               GestureDetector(
                                 onTap: (){
 
-                                  
+                                    
+
+
                                 },
                                 child: Text(
                                   'SIGN UP',
